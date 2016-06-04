@@ -10,18 +10,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAXAefr_BUlJ8D6TsyJugAeOL9ahFg4l_s"></script>
-    <script>
-function initialize() {
-  var mapProp = {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
     <title>Empleo</title>
     <style>
     body {
@@ -51,14 +39,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
+          <a class="navbar-brand " href="index.php">Hackaton</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php" style="font-size:30px">Hackaton</a></li>
-            <li class="active"><a href="about.php">Mapa</a></li>
-            <li><a href="search.php">Buscador</a></li>
-            <li><a href="regmin.php">Empleate!</a></li>
+            <li class="active"><a href="inuserx.php">Perfil</a></li>
+            <li><a href="inusery.php">Emplea!</a></li>
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="index.php">Salir</a></li>
@@ -66,8 +52,18 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container col-xs-12" >
-        <div id="googleMap" style="width:100%;height:800px;"></div>
+    <div class="container " >
+      <div class="col-xs-12">
+          <div class="col-xs-4">
+            <img src="./images/perfil.png" class="img-responsive img-circle" alt="Cinque Terre" style="background-color:#B8D9D9">
+          </div>
+          <div class="col-xs-8" style="background-color:#B8D9D9; color:#000000 ; padding-top:15px">
+          <h1>Aqui va el nombre del usuario</h1>
+          <p>04/04/2016</p> <!--Aqui va la fecha en al qeu se inscribio -->
+          <strong><h2>Oficio</h2></strong>
+          <p>Descripcion que la persona puso en un principio al inscribirse asdasd asd asd asd asd asd asd asd </p>
+          </div>
+      </div>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
