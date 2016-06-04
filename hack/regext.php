@@ -1,3 +1,47 @@
+<?php
+include 'misc.php';
+$conn = conectarBase();
+if($_POST["inputSubmit"]) {
+  $username = $_POST["inputUsuario"];
+  echo "ok";
+  if(strlen($username) <= 0) {
+    $errorUsuario = "Debe ingresar un nombre de usuario.";
+  }
+  if(existeUsuario($username)) {
+    $errorUsuario = "Ya existe el usuario.";
+  }
+  $email = $_POST["inputEmail"];
+  $stmt = "select * from usuario where email = lower('".$email."') limit 1";
+  $result = $conn->query($stmt);
+  if($result->num_rows > 0) {
+    $errorEmail = "Este correo ya se encuentra registrado.";
+  }
+  $password = $_POST["inputPassword"];
+  if(strlen($password) < 8) {
+    $errorPassword = "La contraseña debe tener cuanto menos 8 caracteres";
+  }
+  if(!($errorPassword || $errorEmail || $errorUsuario)) {
+  $strAl = strAleatorio(20);
+  $hash = md5($password.$strAl);
+  $stmt = $conn->prepare(
+  "insert into `usuario`
+(`username`,`strAl`,`hash`,`nombre`,`apPat`,`apMat`,`calle`,`num`,`numInt`,`col`,
+`cp`,`edad`,`genero`,`perfil`,`tel`,`tel2`,`email`,`buscador`)
+values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+  $stmt->bind_param("ssssssssssiiissssi",
+  $username, $strAl, $hash,  $_POST["inputNombre"], $_POST["inputApPat"],
+  $_POST["inputApMat"], $_POST["inputCalle"], $_POST["inputNum"], $_POST["inputNumInt"],
+  $_POST["inputCol"], $_POST["inputCP"], $_POST["inputEdad"], $_POST["inputGenero"],
+  $_POST["inputPerfil"], $_POST["inputTel"], $_POST["inputTel2"], $_POST["inputEmail"],
+  1);
+  $stmt->execute();
+  session_start();
+  $_SESSION["username"] = strtolower($username);
+  header('Location: '."inuserx.php");
+  die();
+}
+}
+?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -69,7 +113,7 @@
             <h1 class="text-center col-xs-12" style="color:#ffffff">Primer paso</h1>
 
 
-            <form method="post" action="">
+            <form method="post" action="regext.php">
 
           <div class="form-group row">
             <label for="inputUsuario" class="col-xs-2 form-control-label" style="color:#ffffff">Nombre de usuario*:</label>
@@ -138,13 +182,13 @@
             <div class="col-sm-10">
               <div class="radio">
                 <label>
-                  <input type="radio" name="inputGenero" id="gridRadios1" value="1" checked >
+                  <input type="radio" name="inputGenero" id="gridRadios1" value=1 checked >
                   <p style="color:#ffffff">Femenino</p>
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="inputGenero" id="gridRadios2" value="2" >
+                  <input type="radio" name="inputGenero" id="gridRadios2" value=2 >
                 <p style="color:#ffffff">Masculino</p>
                 </label>
               </div>
@@ -163,7 +207,7 @@
           <div class="form-group row">
             <label for="inputPerfil" class="col-xs-2 form-control-label" style="color:#ffffff">Perfil*:</label>
             <div class="col-xs-10">
-              <input type="text" class="form-control" name="inputPerfil" placeholder="Colonia" style="height:100px">
+              <input type="text" class="form-control" name="inputPerfil" placeholder="Perfil" style="height:100px">
             </div>
           </div>
           <div class="form-group row">
@@ -176,6 +220,7 @@
             <label for="inputPassword" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
             <div class="col-xs-10">
               <input type="password" class="form-control" name="inputPassword" placeholder="Contraseña">
+              <input type="hidden" class="form-control" name="inputSubmit" value="yes">
             </div>
           </div>
           <div class="form-group row">

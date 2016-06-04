@@ -17,7 +17,7 @@ if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="images/h.png">
     <title>Empleo</title>
     <style>
     body {
@@ -56,18 +56,19 @@ if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="index.php?logout=1">Salir</a></li>
+
           </ul>
         </div><!--/.nav-collapse -->
+      <div class="col-xs-4 pull-rigth">
+          <img src="./images/profile.png" class="img-responsive img-thumbnail col-md-2" alt="Cinque Terre" style="background-color:#B8D9D9; padding-top: 10px">
+        <p class="col-md-2 pull-rigth" style="color:#ffffff">Bienvenido <?php print $_SESSION['username']; ?></p>
+      </div>
       </div>
     </nav>
     <div class="container " >
 
     </div>
-    <p>
-      <b>
-        <?php print $_SESSION['username']; ?>
-      </b>
-    </p>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

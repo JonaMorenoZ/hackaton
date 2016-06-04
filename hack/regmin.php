@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'misc.php';
 if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario($_SESSION["username"]))) {
   $_SESSION["username"] = "";
   header("Location: index.php");
@@ -10,13 +11,10 @@ if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="image/h.png">
     <title>Empleo</title>
     <style>
     body {
@@ -51,14 +49,13 @@ if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php" style="font-size:30px">Hackaton</a></li>
-            <li><a href="mapa.php">Mapa</a></li>
-            <li><a href="search.php">Buscador</a></li>
             <li class="active"><a href="inusery.php">Empleate!</a></li>
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="index.php">Salir</a></li>
           </ul>
         </div><!--/.nav-collapse -->
+
       </div>
     </nav>
     <div class="container " >
