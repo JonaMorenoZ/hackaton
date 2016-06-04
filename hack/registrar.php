@@ -1,10 +1,8 @@
 <?php
 include 'misc.php';
 $conn = conectarBase();
+print $_POST["inputSubmit"].'<br>';
 $username = $_POST["inputUsuario"];
-if(strcmp("gg", $username==0)){
-  $errorUsuario = "El nombre no puede ser gg";
-} else {
 print $username.'<br>';
 $email = $_POST["inputEmail"];
 print $email.'<br>';
@@ -19,5 +17,4 @@ print "gg<b>";
 $stmt->bind_param("ssss", $username, $strAl, $hash, $email);
 $stmt->execute();
 print '<b>Usuario ingresado.</b>';
-}
- ?>
+?>

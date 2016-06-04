@@ -1,3 +1,50 @@
+<?php
+include 'misc.php';
+$conn = conectarBase();
+if($_POST["inputSubmit"] && strcmp($_POST["inputSubmit"], "yes")==0) {
+  $username = $_POST["inputUsuario"];
+  if(strlen($username) <= 0) {
+    $errorUsuario = "Debe ingresar un nombre.";
+  }
+  $stmt = $conn->prepare("select * from usuario where username = ? ");
+  $stmt->bind_param("s", $username);
+  $stmt->exec();
+  $result = $stmt->get_result();
+  $i=0;
+  while ($row = $result->fetch_array(MYSQLI_NUM)){
+    $i = $i + 1;
+  }
+  if($i > 0) {
+    $errorUsuario = "Este nombre de usuario ya está registrado.";
+  }
+  $email = $_POST["inputEmail"];
+  if(strlen($email) <= 0) {
+    $errorEmail = "Debe ingresar un email.";
+  }
+  $stmt = $conn->prepare("select * from usuario where email = ? ");
+  $stmt->bind_param("s", $email);
+  $stmt->exec();
+  $result = $stmt->get_result();
+  $i=0;
+  while ($row = $result->fetch_array(MYSQLI_NUM)){
+    $i = $i + 1;
+  }
+  if($i > 0) {
+    $errorEmail = "Este email ya está registrado";
+  }
+  $password = $_POST["inputPassword"];
+  if(strlen($password) < 8) {
+    $errorPassword = "La contraseña debe tener al menos 8 caracteres.";
+  }
+  if(!($errorUsuario || $errorEmail || $errorPassword)) {
+    $strAl = strAleatorio(20);
+    $hash = md5($password.$strAl);
+    $stmt = $conn->prepare("insert into usuario(username, strAl, hash, email) values(?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $username, $strAl, $hash, $email);
+    $stmt->execute();
+  }
+}
+?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -41,7 +88,7 @@
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
     <div class="container " >
@@ -56,7 +103,6 @@
       </div>
       <div class="col-xs4">
         <div class="container" style="padding-top: 150px;">
-
           <div class="starter-template ">
             <h1 class="text-center col-xs-12" style="color:#ffffff">Primer paso</h1>
             <form method="post" action="registrar.php">
@@ -78,6 +124,7 @@
               <input type="password" class="form-control" name="inputPassword" placeholder="Contraseña">
             </div>
           </div>
+          <input type="hidden" class="form-control" name="inputSubmit" value="yes">
           <div class="form-group row">
             <div class="col-xs-offset-2 col-sm-10">
               <button type="submit" class="btn btn-secondary">Ingresa</button>
