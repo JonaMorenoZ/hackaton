@@ -1,6 +1,6 @@
 <?php
 function conectarBase(){
-  $link = new mysqli("127.0.0.1", "root", "root", "hackaton");
+  $link = new mysqli("l127.0.0.1", "root", "kagenge122", "hackaton");
    if (!$link)  {
      echo "Error";
       exit();

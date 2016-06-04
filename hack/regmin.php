@@ -46,7 +46,7 @@
             <li><a href="index.php" style="font-size:30px">Hackaton</a></li>
             <li><a href="mapa.php">Mapa</a></li>
             <li><a href="search.php">Buscador</a></li>
-            <li class="active"><a href="regmin.php">Empleate!</a></li>
+            <li class="active"><a href="inusery.php">Empleate!</a></li>
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="index.php">Salir</a></li>
