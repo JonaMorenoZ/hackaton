@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'misc.php';
 if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario($_SESSION["username"]))) {
   $_SESSION["username"] = "";
   header("Location: index.php");

@@ -67,68 +67,70 @@
 
           <div class="starter-template ">
             <h1 class="text-center col-xs-12" style="color:#ffffff">Primer paso</h1>
-            <form>
+
+
+            <form method="post" action="">
 
           <div class="form-group row">
             <label for="inputUsuario" class="col-xs-2 form-control-label" style="color:#ffffff">Nombre de usuario*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Usuario">
+              <input type="text" class="form-control" name=inputUsuario placeholder="Usuario">
             </div>
             <label for="inputNombre" class="col-xs-2 form-control-label" style="color:#ffffff">Nombre(s)*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre">
+              <input type="text" class="form-control" name=inputNombre placeholder="Nombre">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputAppat" class="col-xs-2 form-control-label" style="color:#ffffff">Apellido Paterno*</label>
+            <label for="inputApPat" class="col-xs-2 form-control-label" style="color:#ffffff">Apellido Paterno*</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Apellido Paterno">
+              <input type="text" class="form-control" name=inputApPat placeholder="Apellido Paterno">
             </div>
-            <label for="inputApmat" class="col-xs-2 form-control-label" style="color:#ffffff">Apellido Materno*:</label>
+            <label for="inputApMat" class="col-xs-2 form-control-label" style="color:#ffffff">Apellido Materno*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Apellido Materno">
+              <input type="text" class="form-control" name="inputApMat" placeholder="Apellido Materno">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEstado" class="col-xs-2 form-control-label" style="color:#ffffff">Estado*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Estado">
+              <input type="text" class="form-control" name="inputEstado" placeholder="Estado">
             </div>
             <label for="inputMunicipio" class="col-xs-2 form-control-label" style="color:#ffffff">Municipio*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre">
+              <input type="text" class="form-control" name="inputMunicipio" placeholder="Nombre">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCalle" class="col-xs-2 form-control-label" style="color:#ffffff">Calle*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Calle">
+              <input type="text" class="form-control" name="inputCalle" placeholder="Calle">
             </div>
             <label for="inputNum" class="col-xs-2 form-control-label" style="color:#ffffff">Numero Exterior*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Numero Exterior">
+              <input type="text" class="form-control" name="inputNum" placeholder="Numero Exterior">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputNumint" class="col-xs-2 form-control-label" style="color:#ffffff">Numero Interior:</label>
+            <label for="inputNumInt" class="col-xs-2 form-control-label" style="color:#ffffff">Numero Interior:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Numero Interior">
+              <input type="text" class="form-control" name="inputNumInt" placeholder="Numero Interior">
             </div>
-            <label for="inputCp" class="col-xs-2 form-control-label" style="color:#ffffff">Codigo Postal:</label>
+            <label for="inputCP" class="col-xs-2 form-control-label" style="color:#ffffff">Codigo Postal:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Codigo Postal">
+              <input type="text" class="form-control" name="inputCP" placeholder="Codigo Postal">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputColonia" class="col-xs-2 form-control-label" style="color:#ffffff">Colonia*:</label>
             <div class="col-xs-10">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Colonia">
+              <input type="text" class="form-control" name="inputColonia" placeholder="Colonia">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEdad" class="col-xs-2 form-control-label" style="color:#ffffff ">Edad*:</label>
             <div class="col-xs-10">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Edad" style="width:65px ">
+              <input type="text" class="form-control" name="inputEdad" placeholder="Edad" style="width:65px ">
             </div>
           </div>
           <div class="form-group row">
@@ -136,13 +138,13 @@
             <div class="col-sm-10">
               <div class="radio">
                 <label>
-                  <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked >
+                  <input type="radio" name="inputGenero" id="gridRadios1" value="1" checked >
                   <p style="color:#ffffff">Femenino</p>
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="gridRadios" id="gridRadios2" value="option2" >
+                  <input type="radio" name="inputGenero" id="gridRadios2" value="2" >
                 <p style="color:#ffffff">Masculino</p>
                 </label>
               </div>
@@ -151,34 +153,34 @@
           <div class="form-group row">
             <label for="inputTel" class="col-xs-2 form-control-label" style="color:#ffffff">Telefono*:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Telefono">
+              <input type="text" class="form-control" name="inputTel" placeholder="Telefono">
             </div>
             <label for="inputTel2" class="col-xs-2 form-control-label" style="color:#ffffff">Telefono 2:</label>
             <div class="col-xs-4">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Telefono 2">
+              <input type="text" class="form-control" name="inputTel2" placeholder="Telefono 2">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPerfil" class="col-xs-2 form-control-label" style="color:#ffffff">Perfil*:</label>
             <div class="col-xs-10">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Colonia" style="height:100px">
+              <input type="text" class="form-control" name="inputPerfil" placeholder="Colonia" style="height:100px">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputEmail3" class="col-xs-2 form-control-label" style="color:#ffffff">Email:</label>
+            <label for="inputEmail" class="col-xs-2 form-control-label" style="color:#ffffff">Email:</label>
             <div class="col-xs-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              <input type="email" class="form-control" name="inputEmail" placeholder="Email">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
+            <label for="inputPassword" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
             <div class="col-xs-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+              <input type="password" class="form-control" name="inputPassword" placeholder="Contraseña">
             </div>
           </div>
           <div class="form-group row">
             <div class="col-xs-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-secondary">Ingresa</button>
+              <button type="submit" class="btn btn-secondary">Registrate!</button>
             </div>
           </div>
         </form>

@@ -1,18 +1,27 @@
-<<?php
+<?php
 session_start();
 include 'misc.php';
-if($_GET['logout']){
+
+if($_POST["inputLogin"]) {
+  if(iniciarSesion(strtolower($_POST["inputUsuario"]), $_POST["inputPassword"])) {
+    $_SESSION["username"] = strtolower($_POST["inputUsuario"]);
+  }
+  else {
+    $errorLogin = "Error al iniciar sesión, verifique su información: ";
+  }
 }
+
+if($_GET['logout']){
   $_SESSION['username'] = '';
+}
 if($_SESSION['username'] && strlen($_SESSION['username']) > 0) {
   if(existeUsuario($_SESSION["username"])) {
     header("Location: inuser.php");
-    die();
   } else {
     $_SESSION['username'] = '';
   }
 }
- ?>
+?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -71,23 +80,29 @@ if($_SESSION['username'] && strlen($_SESSION['username']) > 0) {
       <div class="starter-template ">
         <h1 class="text-center col-xs-12" style="color:#ffffff">Inicia sesion</h1>
     </div>
-            <form>
+            <form action="index.php" method="post">
 
           <div class="form-group row">
             <label for="inputUsuario" class="col-xs-2 form-control-label" style="color:#ffffff">Nombre de usuario:</label>
             <div class="col-xs-10">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Usuario">
+              <input type="text" class="form-control" name="inputUsuario" placeholder="Usuario">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
+            <label for="inputPassword" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
             <div class="col-xs-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+              <input type="password" class="form-control" name="inputPassword" placeholder="Contraseña">
+              <input type="hidden" class="form-control" name="inputLogin" value="yes">
             </div>
           </div>
           <div class="form-group row">
             <div class="col-xs-offset-2 col-sm-10">
               <button type="submit" class="btn btn-secondary">Ingresa</button>
+              <p class="text-danger">
+                <?php
+                if(errorLogin) { echo $errorLogin."<br>";}
+                 ?>
+              </p>
             </div>
           </div>
         </form>
@@ -104,7 +119,7 @@ if($_SESSION['username'] && strlen($_SESSION['username']) > 0) {
             <button type="button" class="btn btn-primary col-xs-6" style="background-color:#36a2eb; height:80px; font-size:25px"><a class="active" href="registro.php" style="color:#ffffff">Emplea!</a></button>
           </div>
         </div>
-      
+
 
     </div>
     <!-- Bootstrap core JavaScript
