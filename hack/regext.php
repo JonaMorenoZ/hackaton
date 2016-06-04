@@ -41,25 +41,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="http://getbootstrap.com/examples/starter-template/#">Hackaton</a>
+          <a class="navbar-brand" href="index.php">Hackaton</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="http://getbootstrap.com/examples/starter-template/#">Inicio</a></li>
+            <li class="active"><a href="index.php">Inicio</a></li>
             <li><a href="about.php">Acerca de</a></li>
-            <li><a href="http://getbootstrap.com/examples/starter-template/#contact">Contacto</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container " >
       <div class="col-xs-12" >
-        <h1 class="text-center" style="color:#ffffff">Empleate!</h1>
+        <b><h1 class="text-center" style="color:#25064C; font-size: 70px">Empleate!</h1></b>
         <p class="text-center" style="color:#ffffff">
         Este sitio tiene un fin de emplear a aquellas personas que cuentan con algun oficio pero por distintas razones no cuentan con un empleo.
         </p>
         <p class="text-center" style="color:#ffffff">
-          Este sitio pretende ayudar a personas que cuentan con un oficio pero se encuentran desempleadas se parte de esta comunidad 
+          Este sitio pretende ayudar a personas que cuentan con un oficio pero se encuentran desempleadas se parte de esta comunidad
         </p>
       </div>
       <div class="col-xs4">
@@ -159,9 +159,9 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputColonia" class="col-xs-2 form-control-label" style="color:#ffffff">Perfil:</label>
+            <label for="inputPerfil" class="col-xs-2 form-control-label" style="color:#ffffff">Perfil*:</label>
             <div class="col-xs-10">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Colonia">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="Colonia" style="height:100px">
             </div>
           </div>
           <div class="form-group row">
