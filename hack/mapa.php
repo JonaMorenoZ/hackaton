@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario($_SESSION["username"]))) {
+  $_SESSION["username"] = "";
+  header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 
 <html lang="es">

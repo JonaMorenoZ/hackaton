@@ -1,3 +1,18 @@
+<<?php
+session_start();
+include 'misc.php';
+if($_GET['logout']){
+}
+  $_SESSION['username'] = '';
+if($_SESSION['username'] && strlen($_SESSION['username']) > 0) {
+  if(existeUsuario($_SESSION["username"])) {
+    header("Location: inuser.php");
+    die();
+  } else {
+    $_SESSION['username'] = '';
+  }
+}
+ ?>
 <!DOCTYPE html>
 
 <html lang="es">

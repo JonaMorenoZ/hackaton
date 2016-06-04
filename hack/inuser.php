@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!($_SESSION["username"] && strlen($_SESSION["username"]) > 0 && existeUsuario($_SESSION["username"]))) {
+  $_SESSION["username"] = "";
+  header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -47,7 +54,7 @@
             <li><a href="regmin.php">Empleate!</a></li>
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
-            <li><a href="index.php">Salir</a></li>
+            <li><a href="index.php?logout=1">Salir</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -55,6 +62,11 @@
     <div class="container " >
 
     </div>
+    <p>
+      <b>
+        <?php print $_SESSION['username']; ?>
+      </b>
+    </p>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

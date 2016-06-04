@@ -6,10 +6,8 @@ if($_POST["inputSubmit"]) {
   if(strlen($username) <= 0) {
     $errorUsuario = "Debe ingresar un nombre de usuario.";
   }
-  $stmt = "select * from usuario where username = lower('".$username."') limit 1";
-  $result = $conn->query($stmt);
-  if($result->num_rows > 0) {
-    $errorUsuario = "Ya existe el nombre de usuario";
+  if(existeUsuario($username)) {
+    $errorUsuario = "Ya existe el usuario.";
   }
   $email = $_POST["inputEmail"];
   $stmt = "select * from usuario where email = lower('".$email."') limit 1";
@@ -27,6 +25,8 @@ if($_POST["inputSubmit"]) {
   $stmt = $conn->prepare("insert into usuario(username, strAl, hash, email) values(lower(?), ?, ?, ?)");
   $stmt->bind_param("ssss", $username, $strAl, $hash, $email);
   $stmt->execute();
+  session_start();
+  $_SESSION["username"] = strtolower($username);
   header('Location: '."inuser.php");
   die();
 }
