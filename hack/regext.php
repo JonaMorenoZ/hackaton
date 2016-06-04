@@ -41,11 +41,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Hackaton</a>
+          <a class="navbar-brand " href="index.php">Hackaton</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
           </ul>
