@@ -13,13 +13,9 @@
 
     <title>Empleo</title>
     <style>
-    .container {
-            width: 75%;
-            margin-left: auto;
-            margin-right: auto;
-          }
+
     body {
-      padding-top: 50px;
+      padding-top: 250px;
     }
     </style>
 
