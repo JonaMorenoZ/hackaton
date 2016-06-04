@@ -89,9 +89,7 @@
             <button type="button" class="btn btn-primary col-xs-6" style="background-color:#36a2eb; height:80px; font-size:25px"><a class="active" href="registro.php" style="color:#ffffff">Emplea!</a></button>
           </div>
         </div>
-        <p class="text-center" style="color:#ffffff; font-size:5px">
-      Copyright © [2016, pj: "2010-2016"] [Muy tu pedo si te asaltan, ej: "No nos hacemos cargo si te alsaltan con filero .. etc!"]
-        </p>
+      
 
     </div>
     <!-- Bootstrap core JavaScript

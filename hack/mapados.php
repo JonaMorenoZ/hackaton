@@ -57,7 +57,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <ul class="nav navbar-nav">
 
             <li><a href="inuserx.php">Perfil</a></li>
-            <li class="active"><a href="about.php">Mapa</a></li>
+            <li class="active"><a href="mapados.php">Mapa</a></li>
             <li><a href="search.php">Buscador</a></li>
 
             <li><a href="about.php">Acerca de</a></li>

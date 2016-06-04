@@ -44,8 +44,6 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php" style="font-size:30px">Hackaton</a></li>
-            <li><a href="mapa.php">Mapa</a></li>
-            <li><a href="search.php">Buscador</a></li>
             <li><a href="regmin.php">Empleate!</a></li>
             <li><a href="about.php">Acerca de</a></li>
             <li><a href="contacto.php">Contacto</a></li>
@@ -55,7 +53,7 @@
       </div>
     </nav>
     <div class="container " >
-      
+
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
