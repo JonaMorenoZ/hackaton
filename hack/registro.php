@@ -72,7 +72,7 @@
           <div class="form-group row">
             <label for="inputUsuario" class="col-xs-2 form-control-label" style="color:#ffffff">Nombre de usuario:</label>
             <div class="col-xs-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Usuario">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="Usuario">
             </div>
           </div>
           <div class="form-group row">
