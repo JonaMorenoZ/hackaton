@@ -18,7 +18,11 @@
             margin-left: auto;
             margin-right: auto;
           }
+    body {
+      padding-top: 50px;
+    }
     </style>
+
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/index.css" rel="stylesheet">
