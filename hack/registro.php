@@ -49,7 +49,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container"  >
+    <div class="container " >
       <div class="col-xs-12" >
         <h1 class="text-center">Emplea!</h1>
         <p class="text-center">
