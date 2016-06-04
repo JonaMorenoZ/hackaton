@@ -3,23 +3,15 @@
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-
     <title>Empleo</title>
     <style>
-
-
     body {
       padding-top: 10%;
     }
-
-
     </style>
 
 
@@ -67,24 +59,23 @@
 
           <div class="starter-template ">
             <h1 class="text-center col-xs-12" style="color:#ffffff">Primer paso</h1>
-            <form>
-
+            <form method="post" action="registrar.php">
           <div class="form-group row">
             <label for="inputUsuario" class="col-xs-2 form-control-label" style="color:#ffffff">Nombre de usuario:</label>
             <div class="col-xs-10">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Usuario">
+              <input type="text" class="form-control" name="inputUsuario" placeholder="Usuario">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputEmail3" class="col-xs-2 form-control-label" style="color:#ffffff">Email:</label>
+            <label for="inputEmail" class="col-xs-2 form-control-label" style="color:#ffffff">Email:</label>
             <div class="col-xs-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              <input type="email" class="form-control" name="inputEmail" placeholder="Email">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
+            <label for="inputPassword" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
             <div class="col-xs-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+              <input type="password" class="form-control" name="inputPassword" placeholder="Contraseña">
             </div>
           </div>
           <div class="form-group row">
@@ -98,17 +89,8 @@
       </div>
 
     </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="./js/jquery.min.js"></script>
 
     <script src="./js/bootstrap.min.js"></script>
-
-    <!--script type="text/javascript" src="./js/Chart.bundle.min.js"></script-->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!--script src="./Starter Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script-->
-
-
 </body>
 </html>
