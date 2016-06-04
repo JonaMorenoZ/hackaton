@@ -1,48 +1,33 @@
 <?php
 include 'misc.php';
 $conn = conectarBase();
-if($_POST["inputSubmit"] && strcmp($_POST["inputSubmit"], "yes")==0) {
+if($_POST["inputSubmit"]) {
   $username = $_POST["inputUsuario"];
   if(strlen($username) <= 0) {
-    $errorUsuario = "Debe ingresar un nombre.";
+    $errorUsuario = "Debe ingresar un nombre de usuario.";
   }
-  $stmt = $conn->prepare("select * from usuario where username = ? ");
-  $stmt->bind_param("s", $username);
-  $stmt->exec();
-  $result = $stmt->get_result();
-  $i=0;
-  while ($row = $result->fetch_array(MYSQLI_NUM)){
-    $i = $i + 1;
-  }
-  if($i > 0) {
-    $errorUsuario = "Este nombre de usuario ya está registrado.";
+  $stmt = "select * from usuario where username = '".$username."' limit 1";
+  $result = $conn->query($stmt);
+  if($result->num_rows > 0) {
+    $errorUsuario = "Ya existe el nombre de usuario";
   }
   $email = $_POST["inputEmail"];
-  if(strlen($email) <= 0) {
-    $errorEmail = "Debe ingresar un email.";
-  }
-  $stmt = $conn->prepare("select * from usuario where email = ? ");
-  $stmt->bind_param("s", $email);
-  $stmt->exec();
-  $result = $stmt->get_result();
-  $i=0;
-  while ($row = $result->fetch_array(MYSQLI_NUM)){
-    $i = $i + 1;
-  }
-  if($i > 0) {
-    $errorEmail = "Este email ya está registrado";
+  $stmt = "select * from usuario where email = '".$email."' limit 1";
+  $result = $conn->query($stmt);
+  if($result->num_rows > 0) {
+    $errorEmail = "Este correo ya se encuentra registrado.";
   }
   $password = $_POST["inputPassword"];
   if(strlen($password) < 8) {
-    $errorPassword = "La contraseña debe tener al menos 8 caracteres.";
+    $errorPassword = "La contraseña debe tener cuanto menos 8 caracteres";
   }
-  if(!($errorUsuario || $errorEmail || $errorPassword)) {
-    $strAl = strAleatorio(20);
-    $hash = md5($password.$strAl);
-    $stmt = $conn->prepare("insert into usuario(username, strAl, hash, email) values(?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $username, $strAl, $hash, $email);
-    $stmt->execute();
-  }
+  if(!($errorPassword || $errorEmail || $errorUsuario)) {
+  $strAl = strAleatorio(20);
+  $hash = md5($password.$strAl);
+  $stmt = $conn->prepare("insert into usuario(username, strAl, hash, email) values(?, ?, ?, ?)");
+  $stmt->bind_param("ssss", $username, $strAl, $hash, $email);
+  $stmt->execute();
+}
 }
 ?>
 <!DOCTYPE html>
@@ -105,23 +90,27 @@ if($_POST["inputSubmit"] && strcmp($_POST["inputSubmit"], "yes")==0) {
         <div class="container" style="padding-top: 150px;">
           <div class="starter-template ">
             <h1 class="text-center col-xs-12" style="color:#ffffff">Primer paso</h1>
-            <form method="post" action="registrar.php">
+
+            <form method="post" action="registro.php">
           <div class="form-group row">
             <label for="inputUsuario" class="col-xs-2 form-control-label" style="color:#ffffff">Nombre de usuario:</label>
             <div class="col-xs-10">
               <input type="text" class="form-control" name="inputUsuario" placeholder="Usuario">
+              <?php if($errorUsuario) {echo "<p class='text-danger'>$errorUsuario</p>";}?>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail" class="col-xs-2 form-control-label" style="color:#ffffff">Email:</label>
             <div class="col-xs-10">
               <input type="email" class="form-control" name="inputEmail" placeholder="Email">
+              <?php if($errorEmail) {echo "<p class='text-danger'>$errorEmail</p>";}?>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword" class="col-xs-2 form-control-label" style="color:#ffffff">Contraseña:</label>
             <div class="col-xs-10">
               <input type="password" class="form-control" name="inputPassword" placeholder="Contraseña">
+              <?php if($errorPassword) {echo "<p class='text-danger'>$errorPassword</p>";}?>
             </div>
           </div>
           <input type="hidden" class="form-control" name="inputSubmit" value="yes">
