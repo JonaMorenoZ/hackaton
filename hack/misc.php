@@ -1,11 +1,21 @@
 <?php
 function conectarBase(){
-  $link = new mysqli("l127.0.0.1", "root", "kagenge122", "hackaton");
+  $link = new mysqli("127.0.0.1", "root", "root", "hackaton");
    if (!$link)  {
      echo "Error";
       exit();
    }
    return $link;
+}
+
+function existeUsuario($username){
+  $conn = conectarBase();
+  $stmt = "select * from usuario where username = lower('".$username."') limit 1";
+  $result = $conn->query($stmt);
+  if($result->num_rows > 0) {
+    return 1;
+  }
+  return 0;
 }
 
 function strAleatorio($length = 20) {
